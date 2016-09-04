@@ -2,12 +2,47 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
-header {
+.div-wrapper {
+  /* Height and width fallback for older browsers. */
+  height: 100%;
+  /* Set the height to match that of the viewport. */
+  height: 100vh;
+  /* Remove any browser-default margins. */
+  margin: 0;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  border-radius: 100%;
+  border: 3px solid #fff;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+}
+
+.avatar img {
+  width: 100%;
+  background: #f0f0f0;
+}
+
+.outer {
+  display: table;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.info-section {
   background-color: #D64667;
 }
 
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
 .m-0 {
-  margin: 0;
+  margin: 0 !important;
 }
 
 .mT-20 {
@@ -19,12 +54,16 @@ header {
 }
 
 .p-0 {
-  padding: 0;
+  padding: 0 !important;
 }
 
-.pX-40 {
-  padding-left: 40px;
-  padding-right: 40px;
+.pT-60 {
+  padding-top: 60px;
+}
+
+.pX-60 {
+  padding-left: 60px;
+  padding-right: 60px;
 }
 
 .pY-60 {
@@ -32,8 +71,8 @@ header {
   padding-bottom: 60px;
 }
 
-.fg-white {
-  color: white;
+.fg-black {
+  color: #2C2F36;
 }
 
 .font-jumbo {
@@ -41,17 +80,18 @@ header {
 }
 
 .social a {
-  color: white;
+  color: #2C2F36;
   font-size: 36px;
   margin-right: 20px;
 }
 
 .social a:hover {
-  color: white;
+  color: #2C2F36;
 }
 
-.description {
-  margin: 30px 0px;
+.card-box {
+  padding: 20px;
+  background-color: #fff;
 }
 
 .description p {
@@ -68,22 +108,4 @@ header {
 .description i {
   color: #2C2F36;
   font-size: 24px;
-}
-
-footer {
-  background-color: #2C2F36;
-  color: white;
-}
-
-footer h2 {
-  font-size: 36px;
-}
-
-footer i {
-  font-size: 14px;
-  margin-right: 5px;
-}
-
-footer span {
-  font-size: 14px;
 }
