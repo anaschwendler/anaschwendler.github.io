@@ -101,25 +101,21 @@ header .overlay{
 
 .card-box {
   padding: 20px;
-  background-color: #fff;
-}
-
-.description {
-  background-color: #D64667;
+  background-color: #2C2F36;
 }
 
 .description p {
-  color: #2C2F36;
+  color: #fff;
   font-size: 12px;
 }
 
 .description a {
-  color: #2C2F36;
+  color: #fff;
   font-weight: bold;
   text-decoration: none;
 }
 
 .description i {
-  color: #2C2F36;
+  color: #fff;
   font-size: 24px;
 }
