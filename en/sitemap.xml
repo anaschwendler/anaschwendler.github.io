@@ -198,6 +198,31 @@
   </url>
   
   <url>
+    <loc>https://www.anaschwendler.com/tags/continuous-deployment/</loc>
+    <lastmod>2019-12-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.anaschwendler.com/tags/continuous-integration/</loc>
+    <lastmod>2019-12-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.anaschwendler.com/tags/github-actions/</loc>
+    <lastmod>2019-12-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.anaschwendler.com/posts/migrating-github-actions/</loc>
+    <lastmod>2019-12-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.anaschwendler.com/tags/tourlane/</loc>
+    <lastmod>2019-12-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.anaschwendler.com/page/about/</loc>
     <xhtml:link
                 rel="alternate"

@@ -80,5 +80,41 @@
       <description></description>
     </item>
     
+    <item>
+      <title>continuous deployment</title>
+      <link>https://www.anaschwendler.com/tags/continuous-deployment/</link>
+      <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
+      <author>schwendler@gmail.com (Ana Schwendler)</author>
+      <guid>https://www.anaschwendler.com/tags/continuous-deployment/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>continuous integration</title>
+      <link>https://www.anaschwendler.com/tags/continuous-integration/</link>
+      <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
+      <author>schwendler@gmail.com (Ana Schwendler)</author>
+      <guid>https://www.anaschwendler.com/tags/continuous-integration/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>github actions</title>
+      <link>https://www.anaschwendler.com/tags/github-actions/</link>
+      <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
+      <author>schwendler@gmail.com (Ana Schwendler)</author>
+      <guid>https://www.anaschwendler.com/tags/github-actions/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tourlane</title>
+      <link>https://www.anaschwendler.com/tags/tourlane/</link>
+      <pubDate>Mon, 16 Dec 2019 00:00:00 +0000</pubDate>
+      <author>schwendler@gmail.com (Ana Schwendler)</author>
+      <guid>https://www.anaschwendler.com/tags/tourlane/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
