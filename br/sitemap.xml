@@ -298,4 +298,18 @@
                 />
   </url>
   
+  <url>
+    <loc>https://www.anaschwendler.com/br/page/about/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.anaschwendler.com/page/about/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="br"
+                href="https://www.anaschwendler.com/br/page/about/"
+                />
+  </url>
+  
 </urlset>
