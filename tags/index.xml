@@ -7,7 +7,47 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>schwendler@gmail.com (Ana Schwendler)</managingEditor>
     <webMaster>schwendler@gmail.com (Ana Schwendler)</webMaster>
-    <lastBuildDate>Sat, 04 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://www.anaschwendler.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 14 Sep 2021 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.anaschwendler.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>code-enhancement</title>
+      <link>https://www.anaschwendler.com/tags/code-enhancement/</link>
+      <pubDate>Tue, 14 Sep 2021 00:00:00 +0000</pubDate>
+      <author>schwendler@gmail.com (Ana Schwendler)</author>
+      <guid>https://www.anaschwendler.com/tags/code-enhancement/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>exercism</title>
+      <link>https://www.anaschwendler.com/tags/exercism/</link>
+      <pubDate>Tue, 14 Sep 2021 00:00:00 +0000</pubDate>
+      <author>schwendler@gmail.com (Ana Schwendler)</author>
+      <guid>https://www.anaschwendler.com/tags/exercism/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>skill-enhancement</title>
+      <link>https://www.anaschwendler.com/tags/skill-enhancement/</link>
+      <pubDate>Tue, 14 Sep 2021 00:00:00 +0000</pubDate>
+      <author>schwendler@gmail.com (Ana Schwendler)</author>
+      <guid>https://www.anaschwendler.com/tags/skill-enhancement/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>studying</title>
+      <link>https://www.anaschwendler.com/tags/studying/</link>
+      <pubDate>Tue, 14 Sep 2021 00:00:00 +0000</pubDate>
+      <author>schwendler@gmail.com (Ana Schwendler)</author>
+      <guid>https://www.anaschwendler.com/tags/studying/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>contribute</title>
       <link>https://www.anaschwendler.com/tags/contribute/</link>

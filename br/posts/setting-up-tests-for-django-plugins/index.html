@@ -94,7 +94,7 @@ Django Public Admin é um plugin que ajusta o admin de sua aplicação Django co
   <meta name="twitter:site" content="@anaschwendler" />
   <meta name="twitter:creator" content="@anaschwendler" />
   <link href='https://www.anaschwendler.com/img/favicon.ico' rel='icon' type='image/x-icon'/>
-  <meta name="generator" content="Hugo 0.76.5" />
+  <meta name="generator" content="Hugo 0.64.0" />
   <link rel="alternate" href="https://www.anaschwendler.com/br/index.xml" type="application/rss+xml" title="Ana Schwendler"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://www.anaschwendler.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -289,7 +289,7 @@ if (!doNotTrack) {
 <p>Então, como testar essa parte de código sem criar uma aplicação do zero? 🤔</p>
 <h3 id="entendendo-o-que-está-faltando">Entendendo o que está faltando</h3>
 <p>Com o ambiente já configurado, o primeiro erro que apareceu no terminal ao rodarmos os testes localmente, dizia que o Django estava mal configurado (<code>ImproperlyConfigured</code>) e que precisávamos definir a variável <code>DJANGO_SETTINGS_MODULE</code>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure<span style="color:#f92672">()</span> before accessing settings.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure<span style="color:#f92672">(</span><span style="color:#f92672">)</span> before accessing settings.
 </code></pre></div><h3 id="configurando-testssettingspy">Configurando <code>tests/settings.py</code></h3>
 <p>Depois de conversar com a <a href="https://twitter.com/AnaPaulaGomess">Ana Paula Gomes</a>, sela comentou que já tinha visto uma implementação em outro projeto que, e que isso era feito criando um arquivo chamado <code>tests/settings.py</code> que serve como arquivo de configuração para o Django rodar os testes. Para isso, eu criei um arquivo que se parece com o abaixo:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> os
@@ -297,16 +297,16 @@ if (!doNotTrack) {
 BASE_DIR <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>dirname(os<span style="color:#f92672">.</span>path<span style="color:#f92672">.</span>abspath(__file__))
 
 INSTALLED_APPS <span style="color:#f92672">=</span> (
-    <span style="color:#e6db74">&#39;django.contrib.admin&#39;</span>,
-    <span style="color:#e6db74">&#39;django.contrib.auth&#39;</span>,
-    <span style="color:#e6db74">&#39;django.contrib.contenttypes&#39;</span>,
-    <span style="color:#e6db74">&#39;django.contrib.sessions&#39;</span>,
-    <span style="color:#e6db74">&#39;django.contrib.sites&#39;</span>,
-    <span style="color:#e6db74">&#39;public_admin&#39;</span>,
-    <span style="color:#e6db74">&#39;tests&#39;</span>
+    <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">django.contrib.admin</span><span style="color:#e6db74">&#39;</span>,
+    <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">django.contrib.auth</span><span style="color:#e6db74">&#39;</span>,
+    <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">django.contrib.contenttypes</span><span style="color:#e6db74">&#39;</span>,
+    <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">django.contrib.sessions</span><span style="color:#e6db74">&#39;</span>,
+    <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">django.contrib.sites</span><span style="color:#e6db74">&#39;</span>,
+    <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">public_admin</span><span style="color:#e6db74">&#39;</span>,
+    <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">tests</span><span style="color:#e6db74">&#39;</span>
 )
 
-SECRET_KEY <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;foobar&#39;</span>
+SECRET_KEY <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">foobar</span><span style="color:#e6db74">&#39;</span>
 </code></pre></div><p>It does contain the <a href="https://docs.djangoproject.com/en/3.0/ref/settings/">default Django configuration variables</a> as below:</p>
 <ul>
 <li>
@@ -501,7 +501,7 @@ DJANGO_SETTINGS_MODULE=tests.settings
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.76.5</a> alimentada &nbsp;&bull;&nbsp; Tema <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adaptado de <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.64.0</a> alimentada &nbsp;&bull;&nbsp; Tema <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adaptado de <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

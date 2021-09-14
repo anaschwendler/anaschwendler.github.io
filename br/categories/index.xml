@@ -6,6 +6,10 @@
     <description>Recent content in Categories on Ana Schwendler</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>schwendler@gmail.com (Ana Schwendler)</managingEditor>
-    <webMaster>schwendler@gmail.com (Ana Schwendler)</webMaster><atom:link href="https://www.anaschwendler.com/br/categories/index.xml" rel="self" type="application/rss+xml" />
+    <webMaster>schwendler@gmail.com (Ana Schwendler)</webMaster>
+    
+	<atom:link href="https://www.anaschwendler.com/br/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
   </channel>
 </rss>

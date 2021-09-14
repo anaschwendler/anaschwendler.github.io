@@ -7,7 +7,11 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>schwendler@gmail.com (Ana Schwendler)</managingEditor>
     <webMaster>schwendler@gmail.com (Ana Schwendler)</webMaster>
-    <lastBuildDate>Fri, 21 Jul 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://www.anaschwendler.com/br/tags/railsgirls/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 21 Jul 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.anaschwendler.com/br/tags/railsgirls/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>Organizando oficinas de tecnologia</title>
       <link>https://www.anaschwendler.com/br/posts/organizando-oficinas-tecnologia/</link>
