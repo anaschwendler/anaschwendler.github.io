@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Using VCR to Mock Your Requests - Ana Schwendler</title>
+  <meta name="description" content="In the past months, I&rsquo;ve been working with a lot of external API requests. Since I&rsquo;m part of the Marley Spoon’s logistics team, our challenge is to make sure our requests are done in time and everything is delivered in good shape.
+Part of this task, as a software developer, is making sure the code I write is well tested, and does what it is supposed to do. Our software has many integrations with our logistics partners.">
+  <meta name="author" content="Ana Schwendler"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Ana Schwendler",
+    
+    "url": "https:\/\/www.anaschwendler.com\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/www.anaschwendler.com\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/www.anaschwendler.com\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/www.anaschwendler.com\/posts\/testing-with-vcr\/",
+          "name": "Using v c r to mock your requests"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Ana Schwendler"
+  },
+  "headline": "Using VCR to Mock Your Requests",
+  "description" : "In the past months, I\x26rsquo;ve been working with a lot of external API requests. Since I\x26rsquo;m part of the Marley Spoon’s logistics team, our challenge is to make sure our requests are done in time and everything is delivered in good shape.\nPart of this task, as a software developer, is making sure the code I write is well tested, and does what it is supposed to do. Our software has many integrations with our logistics partners.",
+  "inLanguage" : "en",
+  "wordCount":  876 ,
+  "datePublished" : "2021-09-14T00:00:00",
+  "dateModified" : "2021-09-14T00:00:00",
+  "image" : "https:\/\/www.anaschwendler.com\/img\/avatar-icon.jpeg",
+  "keywords" : [ "vcr, testing, ruby, mock-request" ],
+  "mainEntityOfPage" : "https:\/\/www.anaschwendler.com\/posts\/testing-with-vcr\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/www.anaschwendler.com\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/www.anaschwendler.com\/img\/avatar-icon.jpeg",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Using VCR to Mock Your Requests" />
+<meta property="og:description" content="In the past months, I&rsquo;ve been working with a lot of external API requests. Since I&rsquo;m part of the Marley Spoon’s logistics team, our challenge is to make sure our requests are done in time and everything is delivered in good shape.
+Part of this task, as a software developer, is making sure the code I write is well tested, and does what it is supposed to do. Our software has many integrations with our logistics partners.">
+<meta property="og:image" content="https://www.anaschwendler.com/img/avatar-icon.jpeg" />
+<meta property="og:url" content="https://www.anaschwendler.com/posts/testing-with-vcr/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Ana Schwendler" />
+
+  <meta name="twitter:title" content="Using VCR to Mock Your Requests" />
+  <meta name="twitter:description" content="In the past months, I&rsquo;ve been working with a lot of external API requests. Since I&rsquo;m part of the Marley Spoon’s logistics team, our challenge is to make sure our requests are done in time …">
+  <meta name="twitter:image" content="https://www.anaschwendler.com/img/avatar-icon.jpeg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@anaschwendler" />
+  <meta name="twitter:creator" content="@anaschwendler" />
+  <link href='https://www.anaschwendler.com/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.64.0" />
+  <link rel="alternate" href="https://www.anaschwendler.com/index.xml" type="application/rss+xml" title="Ana Schwendler"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://www.anaschwendler.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://www.anaschwendler.com/css/highlight.min.css" /><link rel="stylesheet" href="https://www.anaschwendler.com/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'XXX', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.anaschwendler.com/">Ana Schwendler</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Experiences" href="/page/experiences/">Experiences</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Events and Talks" href="/page/events/">Events and Talks</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="/br" lang="br">br</a>
+                
+              
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Ana Schwendler" href="https://www.anaschwendler.com/">
+            <img class="avatar-img" src="https://www.anaschwendler.com/img/avatar-icon.jpeg" alt="Ana Schwendler" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="posts-heading">
+              
+                <h1>Using VCR to Mock Your Requests</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>In the past months, I&rsquo;ve been working with a lot of external API requests. Since I&rsquo;m part of the Marley Spoon’s logistics team, our challenge is to make sure our requests are done in time and everything is delivered in good shape.</p>
+<p>Part of this task, as a software developer, is making sure the code I write is well tested, and does what it is supposed to do. Our software has many integrations with our logistics partners. When integrating with their systems, we don&rsquo;t want to hit external APIs with real requests every time we run our tests. This not only generates unnecessary requests that can cause problems with API rate limits and other unwanted side-effects. It also makes them run slower. To avoid that, we pretend to make real requests and there is a tool that helps &ldquo;faking&rdquo; these calls: by recording real data from a real network request, we are able to stub a third party’s web service response. The saved data is called a &ldquo;cassette tape&rdquo; and the name of the tool I refer to is <a href="https://github.com/vcr/vcr">VCR</a>.</p>
+<p>In this post I&rsquo;ll explain how I&rsquo;ve been learning to use it and why I think it is useful.</p>
+<p><img src="https://media.giphy.com/media/xT1R9RfuBqWvfo8oDe/giphy.gif" alt=""></p>
+<h2 id="what-is-a-mock-test">What is a mock test?</h2>
+<p>Since this is not about the mocking technique, I&rsquo;ll just briefly introduce it and link to a useful article on the topic. In <a href="https://circleci.com/blog/how-to-test-software-part-i-mocking-stubbing-and-contract-testing/">this post</a> we can see mock testing defined as:</p>
+<blockquote>
+<p>Mocking means creating a fake version of an external or internal service that can stand in for the real one, helping your tests run more quickly and more reliably. When your implementation interacts with an object’s properties, rather than its function or behavior, a mock can be used.</p>
+</blockquote>
+<p>… and that is exactly the reason why we use VCR.</p>
+<h2 id="what-is-vcr">What is VCR?</h2>
+<p>According to <a href="https://github.com/vcr/vcr">their documentation</a>:</p>
+<blockquote>
+<p>Record your test suite&rsquo;s HTTP interactions and replay them during future test runs for fast, deterministic, accurate tests.</p>
+</blockquote>
+<p>Which means that when you first run your test with the VCR syntax, it will record what happened and next time you run the test again, you will have the recorded version ready to stand in for the real request.</p>
+<h2 id="how-to-use-vcr">How to use VCR?</h2>
+<p>I have a basic example <a href="https://github.com/anaschwendler/vcr_example">here</a>.</p>
+<p>So basically, whenever you want to test a part of code that requires an external web request, you use the  <code>.use_cassette</code> method to state that you want VCR to deal with that with a cassette file. If there already is data with a pre-recorded HTTP interaction, VCR will use it. If not, VCR will <strong>automatically create</strong> a cassette file (this time making a real request) based on the request made in the test.</p>
+<p>But still, if you are looking forward to making real requests, VCR also offers different record modes, which can be checked <a href="https://relishapp.com/vcr/vcr/v/6-0-0/docs/record-modes">here</a></p>
+<p>Example:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">require <span style="color:#e6db74">&#39;rubygems&#39;</span>
+require <span style="color:#e6db74">&#39;test/unit&#39;</span>
+require <span style="color:#e6db74">&#39;vcr&#39;</span>
+
+<span style="color:#66d9ef">VCR</span><span style="color:#f92672">.</span>configure <span style="color:#66d9ef">do</span> <span style="color:#f92672">|</span>config<span style="color:#f92672">|</span>
+  config<span style="color:#f92672">.</span>cassette_library_dir <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">fixtures/vcr_cassettes</span><span style="color:#e6db74">&#34;</span>
+  config<span style="color:#f92672">.</span>hook_into <span style="color:#e6db74">:webmock</span>
+<span style="color:#66d9ef">end</span>
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">VCRTest</span> <span style="color:#f92672">&lt;</span> <span style="color:#66d9ef">Test</span><span style="color:#f92672">::</span><span style="color:#66d9ef">Unit</span><span style="color:#f92672">::</span><span style="color:#66d9ef">TestCase</span>
+  <span style="color:#66d9ef">def</span> <span style="color:#a6e22e"></span><span style="color:#f92672"></span><span style="color:#a6e22e">test_example_dot_com</span>
+    <span style="color:#66d9ef">VCR</span><span style="color:#f92672">.</span>use_cassette(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">synopsis</span><span style="color:#e6db74">&#34;</span>) <span style="color:#66d9ef">do</span>
+      response <span style="color:#f92672">=</span> <span style="color:#66d9ef">Net</span><span style="color:#f92672">::</span><span style="color:#66d9ef">HTTP</span><span style="color:#f92672">.</span>get_response(<span style="color:#66d9ef">URI</span>(<span style="color:#e6db74">&#39;http://www.iana.org/domains/reserved&#39;</span>))
+      assert_match <span style="color:#e6db74">/</span><span style="color:#e6db74">Example domains</span><span style="color:#e6db74">/</span>, response<span style="color:#f92672">.</span>body
+    <span style="color:#66d9ef">end</span>
+  <span style="color:#66d9ef">end</span>
+<span style="color:#66d9ef">end</span>
+</code></pre></div><p>Here you are requesting to use a cassette called <code>synopsis</code>, which mocks a request to <a href="http://www.iana.org/domains/reserved">iana.org</a>.</p>
+<p>If this is running the first time, VCR will generate a &ldquo;cassette&rdquo; file, which will be stored at <code>fixtures/vcr_cassettes</code>, which for the example will be called <code>synopsis.yml</code>.</p>
+<p>This is what <code>fixtures/vcr_cassettes/synopsis.yml</code> looks like (I&rsquo;ve removed some parts as it was too big):</p>
+<pre><code>---
+http_interactions:
+- request:
+    method: get
+    uri: http://www.iana.org/domains/reserved
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - &quot;*/*&quot;
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 18 Jun 2021 08:06:40 GMT
+      Server:
+      - Apache
+      Vary:
+      - Accept-Encoding
+      Last-Modified:
+      - Thu, 21 May 2020 22:41:39 GMT
+      X-Frame-Options:
+      - SAMEORIGIN
+      Expires:
+      - Fri, 18 Jun 2021 09:56:45 GMT
+      Referrer-Policy:
+      - origin-when-cross-origin
+      X-Content-Type-Options:
+      - nosniff
+      Age:
+      - '595'
+      Content-Type:
+      - text/html; charset=UTF-8
+      Cache-Control:
+      - public, max-age=21603
+      Content-Security-Policy: /*cropped security policy*/
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        /*cropped binary string*/
+    http_version:
+  recorded_at: Fri, 18 Jun 2021 08:06:40 GMT
+recorded_with: VCR 5.0.0
+</code></pre><p>From now on your test suite will use this cassette file. It will also run faster, as it has the file in place and doesn&rsquo;t need to make the request which can take more time.</p>
+<h2 id="examples-in-real-life">Examples in real life</h2>
+<p>One example of project that uses VCR is this <code>site-search-ruby</code> client from elastic: <a href="https://github.com/elastic/site-search-ruby">https://github.com/elastic/site-search-ruby</a></p>
+<p>In their context of <code>Search</code>, when searching all DocumentTypes in the engine, they use a cassette called <code>engine_search</code> to mock a request:</p>
+<p><a href="https://github.com/elastic/site-search-ruby/blob/master/spec/client_spec.rb">https://github.com/elastic/site-search-ruby/blob/master/spec/client_spec.rb</a></p>
+<p>This is the cassette file that is used in this call: <a href="https://github.com/elastic/site-search-ruby/blob/master/spec/fixtures/vcr/engine_search.yml">https://github.com/elastic/site-search-ruby/blob/master/spec/fixtures/vcr/engine_search.yml</a></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>VCR seems to be a very reliable tool to fake requests to APIs. But we still need to be aware that sometimes APIs can change and with that we need to record our tests again. This process should be simple and easy to reproduce, so for more tips regarding VCR use, I recommend <a href="https://fabioperrella.github.io/10_tips_to_help_using_the_VCR_gem_in_your_ruby_test_suite.html">this</a> blog post.</p>
+<h3 id="hiding-confidential-credentials-in-vcr_cassettes">Hiding confidential credentials in vcr_cassettes</h3>
+<p>There is a configuration option available to filter sensitive data that can be used to prevent it from being written to the cassette files, the documentation is <a href="https://relishapp.com/vcr/vcr/v/5-0-0/docs/configuration/filter-sensitive-data">here</a>. This is important, as you want to track your cassette YML files in your source control management tool. And secrets don’t belong there.</p>
+<h2 id="references">References</h2>
+<p><a href="https://github.com/vcr/vcr">https://github.com/vcr/vcr</a></p>
+<p><a href="https://github.com/elastic/site-search-ruby">https://github.com/elastic/site-search-ruby</a></p>
+<p><a href="https://circleci.com/blog/how-to-test-software-part-i-mocking-stubbing-and-contract-testing/">https://circleci.com/blog/how-to-test-software-part-i-mocking-stubbing-and-contract-testing/</a></p>
+<p><a href="https://fabioperrella.github.io/10_tips_to_help_using_the_VCR_gem_in_your_ruby_test_suite.html">https://fabioperrella.github.io/10_tips_to_help_using_the_VCR_gem_in_your_ruby_test_suite.html</a></p>
+<p>Thanks <a href="https://github.com/memunaharuna">Memuna</a> for reviewing it! :tada:</p>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://www.anaschwendler.com//tags/vcr/">vcr</a>&nbsp;
+            
+              <a href="https://www.anaschwendler.com//tags/testing/">testing</a>&nbsp;
+            
+              <a href="https://www.anaschwendler.com//tags/ruby/">ruby</a>&nbsp;
+            
+              <a href="https://www.anaschwendler.com//tags/mock-request/">mock-request</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fwww.anaschwendler.com%2fposts%2ftesting-with-vcr%2f&amp;text=Using%20VCR%20to%20Mock%20Your%20Requests&amp;via=anaschwendler" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.anaschwendler.com%2fposts%2ftesting-with-vcr%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwww.anaschwendler.com%2fposts%2ftesting-with-vcr%2f&amp;title=Using%20VCR%20to%20Mock%20Your%20Requests" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwww.anaschwendler.com%2fposts%2ftesting-with-vcr%2f&amp;title=Using%20VCR%20to%20Mock%20Your%20Requests" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwww.anaschwendler.com%2fposts%2ftesting-with-vcr%2f&amp;title=Using%20VCR%20to%20Mock%20Your%20Requests" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwww.anaschwendler.com%2fposts%2ftesting-with-vcr%2f&amp;description=Using%20VCR%20to%20Mock%20Your%20Requests" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/posts/setting-up-tests-for-django-plugins/">Setting up tests for Django Plugins</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://www.anaschwendler.com/posts/open-source-quarantine/" data-toggle="tooltip" data-placement="top" title="Open Source Quarantine">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://www.anaschwendler.com/posts/enhancing-your-coding-skills/" data-toggle="tooltip" data-placement="top" title="Enhancing your skills with one code exercise a day">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:schwendler@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/anaschwendler" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://gitlab.com/anaschwendler" title="GitLab">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-gitlab fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/anaschwendler" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/anaschwendler" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="anaschwendler.com">Ana Schwendler</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2021
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.anaschwendler.com/">Ana Schwendler</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.64.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://www.anaschwendler.com/js/main.js"></script>
+<script src="https://www.anaschwendler.com/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://www.anaschwendler.com/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

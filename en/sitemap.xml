@@ -33,6 +33,11 @@
   </url>
   
   <url>
+    <loc>https://www.anaschwendler.com/tags/mock-request/</loc>
+    <lastmod>2021-09-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://www.anaschwendler.com/posts/</loc>
     <lastmod>2021-09-14T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -45,6 +50,11 @@
                 hreflang="en"
                 href="https://www.anaschwendler.com/posts/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://www.anaschwendler.com/tags/ruby/</loc>
+    <lastmod>2021-09-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -70,6 +80,31 @@
                 hreflang="en"
                 href="https://www.anaschwendler.com/tags/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://www.anaschwendler.com/tags/testing/</loc>
+    <lastmod>2021-09-14T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="br"
+                href="https://www.anaschwendler.com/br/tags/testing/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.anaschwendler.com/tags/testing/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://www.anaschwendler.com/posts/testing-with-vcr/</loc>
+    <lastmod>2021-09-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.anaschwendler.com/tags/vcr/</loc>
+    <lastmod>2021-09-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -204,21 +239,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://www.anaschwendler.com/tags/software-development/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://www.anaschwendler.com/tags/testing/</loc>
-    <lastmod>2020-04-04T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="br"
-                href="https://www.anaschwendler.com/br/tags/testing/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://www.anaschwendler.com/tags/testing/"
                 />
   </url>
   

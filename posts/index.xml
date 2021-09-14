@@ -23,6 +23,16 @@ Also, I found this pattern in most of my colleagues as we got tired of staying a
     </item>
     
     <item>
+      <title>Using VCR to Mock Your Requests</title>
+      <link>https://www.anaschwendler.com/posts/testing-with-vcr/</link>
+      <pubDate>Tue, 14 Sep 2021 00:00:00 +0000</pubDate>
+      <author>schwendler@gmail.com (Ana Schwendler)</author>
+      <guid>https://www.anaschwendler.com/posts/testing-with-vcr/</guid>
+      <description>In the past months, I&amp;rsquo;ve been working with a lot of external API requests. Since I&amp;rsquo;m part of the Marley Spoon’s logistics team, our challenge is to make sure our requests are done in time and everything is delivered in good shape.
+Part of this task, as a software developer, is making sure the code I write is well tested, and does what it is supposed to do. Our software has many integrations with our logistics partners.</description>
+    </item>
+    
+    <item>
       <title>Open Source Quarantine</title>
       <link>https://www.anaschwendler.com/posts/open-source-quarantine/</link>
       <pubDate>Sat, 04 Apr 2020 00:00:00 +0000</pubDate>
