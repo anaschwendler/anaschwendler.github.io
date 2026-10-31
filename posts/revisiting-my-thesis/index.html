@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Revisiting my undergraduate thesis, almost ten years later - Ana Schwendler</title>
+  <meta name="description" content="In 2016 I finished my Computer Science thesis: an automatic summarizer for Brazilian Portuguese news called ConceptRank. The idea was to take LexRank, a classic method that builds a graph of sentences and picks the most &ldquo;central&rdquo; ones, and replace its sentence similarity with a concept-based one that should cope better with synonyms and spelling variants. I evaluated it on CSTNews, a corpus of 50 clusters of news articles, with the ROUGE metric.">
+  <meta name="author" content="Ana Schwendler"/><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Ana Schwendler",
+    
+    "url": "https:\/\/www.anaschwendler.com\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/www.anaschwendler.com\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/www.anaschwendler.com\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/www.anaschwendler.com\/posts\/revisiting-my-thesis\/",
+          "name": "Revisiting my undergraduate thesis, almost ten years later"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : "Ana Schwendler"
+  },
+  "headline": "Revisiting my undergraduate thesis, almost ten years later",
+  "description" : "In 2016 I finished my Computer Science thesis: an automatic summarizer for Brazilian Portuguese news called ConceptRank. The idea was to take LexRank, a classic method that builds a graph of sentences and picks the most \x26ldquo;central\x26rdquo; ones, and replace its sentence similarity with a concept-based one that should cope better with synonyms and spelling variants. I evaluated it on CSTNews, a corpus of 50 clusters of news articles, with the ROUGE metric.",
+  "inLanguage" : "en",
+  "wordCount":  1174 ,
+  "datePublished" : "2026-10-31T00:00:00",
+  "dateModified" : "2026-10-31T00:00:00",
+  "image" : "https:\/\/www.anaschwendler.com\/img\/avatar-icon.jpeg",
+  "keywords" : [ "thesis, nlp, summarization, reproducibility, python" ],
+  "mainEntityOfPage" : "https:\/\/www.anaschwendler.com\/posts\/revisiting-my-thesis\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/www.anaschwendler.com\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/www.anaschwendler.com\/img\/avatar-icon.jpeg",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Revisiting my undergraduate thesis, almost ten years later" />
+<meta property="og:description" content="In 2016 I finished my Computer Science thesis: an automatic summarizer for Brazilian Portuguese news called ConceptRank. The idea was to take LexRank, a classic method that builds a graph of sentences and picks the most &ldquo;central&rdquo; ones, and replace its sentence similarity with a concept-based one that should cope better with synonyms and spelling variants. I evaluated it on CSTNews, a corpus of 50 clusters of news articles, with the ROUGE metric.">
+<meta property="og:image" content="https://www.anaschwendler.com/img/avatar-icon.jpeg" />
+<meta property="og:url" content="https://www.anaschwendler.com/posts/revisiting-my-thesis/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Ana Schwendler" />
+
+  <meta name="twitter:title" content="Revisiting my undergraduate thesis, almost ten years later" />
+  <meta name="twitter:description" content="In 2016 I finished my Computer Science thesis: an automatic summarizer for Brazilian Portuguese news called ConceptRank. The idea was to take LexRank, a classic method that builds a graph of sentences …">
+  <meta name="twitter:image" content="https://www.anaschwendler.com/img/avatar-icon.jpeg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@anaschwendler" />
+  <meta name="twitter:creator" content="@anaschwendler" />
+  <link href='https://www.anaschwendler.com/img/favicon.ico' rel='icon' type='image/x-icon'/>
+  <meta name="generator" content="Hugo 0.64.0" />
+  <link rel="alternate" href="https://www.anaschwendler.com/index.xml" type="application/rss+xml" title="Ana Schwendler"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://www.anaschwendler.com/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+  <link rel="stylesheet" href="https://www.anaschwendler.com/css/highlight.min.css" /><link rel="stylesheet" href="https://www.anaschwendler.com/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'XXX', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://www.anaschwendler.com/">Ana Schwendler</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Blog" href="/">Blog</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="About" href="/page/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Experiences" href="/page/experiences/">Experiences</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Events and Talks" href="/page/events/">Events and Talks</a>
+            </li>
+          
+        
+
+        
+          
+            <li>
+              
+                
+                  <a href="/br" lang="br">br</a>
+                
+              
+                
+              
+            </li>
+          
+        
+
+        
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Ana Schwendler" href="https://www.anaschwendler.com/">
+            <img class="avatar-img" src="https://www.anaschwendler.com/img/avatar-icon.jpeg" alt="Ana Schwendler" />
+          </a>
+        </div>
+      </div>
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="posts-heading">
+              
+                <h1>Revisiting my undergraduate thesis, almost ten years later</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>In 2016 I finished my Computer Science thesis: an automatic summarizer for
+Brazilian Portuguese news called <strong>ConceptRank</strong>. The idea was to take LexRank, a
+classic method that builds a graph of sentences and picks the most &ldquo;central&rdquo;
+ones, and replace its sentence similarity with a concept-based one that should
+cope better with synonyms and spelling variants. I evaluated it on
+<a href="https://sites2.icmc.usp.br/taspardo/sucinto/cstnews.html">CSTNews</a>, a corpus of
+50 clusters of news articles, with the ROUGE metric. The result: ConceptRank beat
+LexRank and CSTSumm, a system from the literature.</p>
+<p>The repository then sat untouched, in the state every thesis ends up in:
+notebooks, Python 2, hard-coded paths and a README that said &ldquo;[UNDER REFACTOR]&quot;.
+This month I finally cleaned it up. The code is now at
+<a href="https://github.com/anaschwendler/tcc">github.com/anaschwendler/tcc</a>, and what I
+learned along the way was far more interesting than I expected.</p>
+<h2 id="freeze-first-then-fix">Freeze first, then fix</h2>
+<p>Before changing anything, I moved the 2016 results into their own folder and
+wrote down what was known about how they were produced. The rule was: a fix only
+goes in if I can measure how much it changes the numbers. So the first step was
+porting the code to Python 3 <strong>without changing its behaviour</strong>, with a test that
+compares the new summaries to the 2016 ones.</p>
+<p>The test failed. The ported LexRank reproduced only 24 of the 50 summaries.</p>
+<h2 id="libraries-change-under-your-feet">Libraries change under your feet</h2>
+<p>Finding out why turned into archaeology. The summaries dated from October 2016,
+so I built a throwaway environment with the versions of the time (<code>sumy</code> 0.4.1
+and <code>nltk</code> 3.2.1) and ran the same code: 49 of 50 identical byte for byte, and
+the 50th with the same text plus a leftover from a file that was never closed.</p>
+<p>The difference was in the tokenizer. The 2016 <code>sumy</code> only accepted words made
+entirely of letters, so it dropped everything with a hyphen: &ldquo;segunda-feira&rdquo;
+(Monday), &ldquo;porta-voz&rdquo; (spokesperson), &ldquo;vice-presidente&rdquo;. In Portuguese news,
+that is a lot. Newer versions keep those words, and sentence selection changes.</p>
+<p>Lesson: <strong>without pinned versions, a result is not reproducible</strong>, even with
+identical code. The project now uses <code>uv</code> with a <code>uv.lock</code>, and its &ldquo;as in the
+thesis&rdquo; mode reproduces the old filter on purpose.</p>
+<h2 id="bugs-that-python-2-was-hiding">Bugs that Python 2 was hiding</h2>
+<p>ConceptRank had another problem: running the same code twice on Python 3, 39 of
+the 50 summaries came out different. Its similarity walked over a set of words
+keeping a running maximum, so the result depended on <strong>iteration order</strong>. On
+Python 2 that order was fixed (but arbitrary); on Python 3 it changes on every
+run. The bug had always been there; it just never showed.</p>
+<p>Looking closer, the formula wasn&rsquo;t the one from the original paper either:
+instead of each word&rsquo;s weight in the sentence, it used the <strong>word&rsquo;s length</strong>
+(<code>len(term)</code>).</p>
+<h2 id="the-metric-was-counting-letters">The metric was counting letters</h2>
+<p>This is the finding that changed everything. The thesis numbers were too high:
+ROUGE-1 precision between 0.90 and 0.97. I read the code of the library I used
+to call ROUGE, a fork of <code>pyrouge</code>, and its <code>score_summary()</code> expected a <strong>list
+of sentences</strong>. I was passing a <strong>string</strong>. Iterating over a string in Python
+yields characters, so every letter became a &ldquo;sentence&rdquo;, and ROUGE compared
+<strong>letters and pairs of letters</strong>, not words.</p>
+<p>To be sure, I reimplemented that behaviour and reproduced the 150 archived
+scores (3 systems × 50 clusters): 149 match to the fifth decimal place. The only
+one that doesn&rsquo;t is the file that was never closed.</p>
+<p>Scoring the same 2016 summaries with word-level ROUGE, ConceptRank still leads
+LexRank on average, but the difference is no longer statistically significant,
+and its advantage over CSTSumm disappears.</p>
+<p>Lesson: <strong>test your evaluation</strong>, not just your model. A simple sanity check
+(two texts with no words in common should score close to zero) would have caught
+this in 2016.</p>
+<h2 id="the-corpus-had-surprises-too">The corpus had surprises too</h2>
+<p>Rewriting the corpus loader turned up more:</p>
+<ul>
+<li>News <strong>headlines</strong> went in as if they were sentences, glued to the first
+sentence of the text.</li>
+<li>The <strong>reference</strong> used for ROUGE had a tag at the end of every sentence
+(<code>&lt;D1_C1_Folha; p1-s1&gt;</code>), so &ldquo;D1&rdquo;, &ldquo;Folha&rdquo; and &ldquo;p1&rdquo; counted as words a summary
+should contain.</li>
+<li>In 9 clusters those tags had the wrong document number or news agency.</li>
+<li>Folder names saved in a DOS code page and read back as Cyrillic (<code>Polбtica</code>).</li>
+<li><code>sumy</code>'s Portuguese stop word list stores 36 of its 195 words as literal
+escapes (<code>n\xe3o</code> instead of &ldquo;não&rdquo;), so &ldquo;não&rdquo;, &ldquo;já&rdquo; and &ldquo;são&rdquo; were never
+removed.</li>
+</ul>
+<h2 id="one-fix-at-a-time-and-watch-the-length">One fix at a time, and watch the length</h2>
+<p>I fixed each problem on its own and measured each one with a paired Wilcoxon
+test. Along the way, one effect turned out to contaminate everything: <strong>summary
+length</strong>. The thesis picked a fixed number of sentences, so any change that made
+the system choose shorter sentences lowered recall without the choice being any
+worse. I switched to cutting every summary at the length of the reference and
+redid the comparisons.</p>
+<p>With that, removing headlines, keeping hyphenated words and controlling length
+genuinely helped. A Portuguese stemmer, the corpus&rsquo; own sentence segmentation
+and the &ldquo;fixed&rdquo; ConceptRank formula made no measurable difference.</p>
+<h2 id="so-what-about-conceptrank">So, what about ConceptRank?</h2>
+<p>With every fix in place, scored at word level over the 50 clusters:</p>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>ROUGE-1 recall</th>
+<th>ROUGE-2 recall</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lead (opening sentences of each article)</td>
+<td><strong>0.587</strong></td>
+<td><strong>0.404</strong></td>
+</tr>
+<tr>
+<td>ConceptRank</td>
+<td>0.579</td>
+<td>0.376</td>
+</tr>
+<tr>
+<td>LexRank</td>
+<td>0.569</td>
+<td>0.364</td>
+</tr>
+<tr>
+<td>Random sentences</td>
+<td>0.514</td>
+<td>0.286</td>
+</tr>
+</tbody>
+</table>
+<p>Every system improved over 2016. ConceptRank is about 0.01 ahead of LexRank, but
+not significantly. Both clearly beat random sentences, so the graph does its job,
+and neither beats simply taking the opening sentences of each article, which is
+well known in news summarization and which I hadn&rsquo;t measured back then. The
+thesis&rsquo; other two claims (that ConceptRank does better on short texts and on
+texts with little vocabulary variety) don&rsquo;t hold either.</p>
+<p>And the most honest point of all: ConceptRank&rsquo;s &ldquo;concepts&rdquo; never went beyond
+stemmed words. The rule-based categorization with synonyms and related terms
+that the thesis describes was never implemented.</p>
+<h2 id="what-i-take-from-it">What I take from it</h2>
+<ul>
+<li><strong>Reproduce before you improve.</strong> Without a measured starting point, you can&rsquo;t
+tell whether a change helped.</li>
+<li><strong>Pin your versions.</strong> The same code with different libraries gave a different
+result.</li>
+<li><strong>Be suspicious of numbers that look too good</strong>, and test your evaluation with
+obvious cases.</li>
+<li><strong>Always compare against trivial baselines.</strong> Lead would have changed the
+conclusion in 2016.</li>
+<li><strong>Control for confounders</strong>, like summary length.</li>
+<li><strong>A significance test over 50 examples is humbling.</strong> Differences of 0.01 are
+almost always noise.</li>
+</ul>
+<p>It isn&rsquo;t the result I hoped to find, but it&rsquo;s what the data says, and now anyone
+can run it and check: every number in the repository has a script that produces
+it, and the tests make sure the old code was ported faithfully. I did this review
+pairing with Claude Code, which made it feasible to dig this deep in so little
+time.</p>
+<p>If I ever return to the topic, the way forward is to actually build the concept
+part, with synonyms or Portuguese sentence embeddings. At least the setup to
+measure it properly is already there.</p>
+
+
+        
+          <div class="blog-tags">
+            
+              <a href="https://www.anaschwendler.com//tags/thesis/">thesis</a>&nbsp;
+            
+              <a href="https://www.anaschwendler.com//tags/nlp/">nlp</a>&nbsp;
+            
+              <a href="https://www.anaschwendler.com//tags/summarization/">summarization</a>&nbsp;
+            
+              <a href="https://www.anaschwendler.com//tags/reproducibility/">reproducibility</a>&nbsp;
+            
+              <a href="https://www.anaschwendler.com//tags/python/">python</a>&nbsp;
+            
+          </div>
+        
+
+        
+            <hr/>
+            <section id="social-share">
+              <div class="list-inline footer-links">
+                
+
+<div class="share-box" aria-hidden="true">
+    <ul class="share">
+      
+      <li>
+        <a href="//twitter.com/share?url=https%3a%2f%2fwww.anaschwendler.com%2fposts%2frevisiting-my-thesis%2f&amp;text=Revisiting%20my%20undergraduate%20thesis%2c%20almost%20ten%20years%20later&amp;via=anaschwendler" target="_blank" title="Share on Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fwww.anaschwendler.com%2fposts%2frevisiting-my-thesis%2f" target="_blank" title="Share on Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//reddit.com/submit?url=https%3a%2f%2fwww.anaschwendler.com%2fposts%2frevisiting-my-thesis%2f&amp;title=Revisiting%20my%20undergraduate%20thesis%2c%20almost%20ten%20years%20later" target="_blank" title="Share on Reddit">
+          <i class="fab fa-reddit"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fwww.anaschwendler.com%2fposts%2frevisiting-my-thesis%2f&amp;title=Revisiting%20my%20undergraduate%20thesis%2c%20almost%20ten%20years%20later" target="_blank" title="Share on LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.stumbleupon.com/submit?url=https%3a%2f%2fwww.anaschwendler.com%2fposts%2frevisiting-my-thesis%2f&amp;title=Revisiting%20my%20undergraduate%20thesis%2c%20almost%20ten%20years%20later" target="_blank" title="Share on StumbleUpon">
+          <i class="fab fa-stumbleupon"></i>
+        </a>
+      </li>
+  
+      
+      <li>
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fwww.anaschwendler.com%2fposts%2frevisiting-my-thesis%2f&amp;description=Revisiting%20my%20undergraduate%20thesis%2c%20almost%20ten%20years%20later" target="_blank" title="Share on Pinterest">
+          <i class="fab fa-pinterest"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  
+
+              </div>
+            </section>
+        
+
+        
+          
+            
+          
+
+          
+                  <h4 class="see-also">See also</h4>
+                  <ul>
+                
+                
+                    <li><a href="/posts/setting-up-tests-for-django-plugins/">Setting up tests for Django Plugins</a></li>
+                
+              </ul>
+
+          
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://www.anaschwendler.com/posts/enhancing-your-coding-skills/" data-toggle="tooltip" data-placement="top" title="Enhancing your skills with one code exercise a day">&larr; Previous Post</a>
+            </li>
+          
+          
+        </ul>
+      
+
+
+      
+        
+        
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+              <li>
+                <a href="mailto:schwendler@gmail.com" title="Email me">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/anaschwendler" title="GitHub">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://gitlab.com/anaschwendler" title="GitLab">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-gitlab fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/anaschwendler" title="Twitter">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/anaschwendler" title="LinkedIn">
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                  </span>
+                </a>
+              </li>
+          
+          <li>
+            <a href="" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+            
+              <a href="anaschwendler.com">Ana Schwendler</a>
+            
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://www.anaschwendler.com/">Ana Schwendler</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.64.0</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://www.anaschwendler.com/js/main.js"></script>
+<script src="https://www.anaschwendler.com/js/highlight.min.js"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://www.anaschwendler.com/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+

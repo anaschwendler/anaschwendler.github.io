@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>schwendler@gmail.com (Ana Schwendler)</managingEditor>
     <webMaster>schwendler@gmail.com (Ana Schwendler)</webMaster>
-    <lastBuildDate>Tue, 14 Sep 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 31 Oct 2026 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.anaschwendler.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Revisiting my undergraduate thesis, almost ten years later</title>
+      <link>https://www.anaschwendler.com/posts/revisiting-my-thesis/</link>
+      <pubDate>Sat, 31 Oct 2026 00:00:00 +0000</pubDate>
+      <author>schwendler@gmail.com (Ana Schwendler)</author>
+      <guid>https://www.anaschwendler.com/posts/revisiting-my-thesis/</guid>
+      <description>In 2016 I finished my Computer Science thesis: an automatic summarizer for Brazilian Portuguese news called ConceptRank. The idea was to take LexRank, a classic method that builds a graph of sentences and picks the most &amp;ldquo;central&amp;rdquo; ones, and replace its sentence similarity with a concept-based one that should cope better with synonyms and spelling variants. I evaluated it on CSTNews, a corpus of 50 clusters of news articles, with the ROUGE metric.</description>
+    </item>
     
     <item>
       <title>Enhancing your skills with one code exercise a day</title>
